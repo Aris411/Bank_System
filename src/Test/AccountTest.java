@@ -52,4 +52,16 @@ public class AccountTest {
         assertEquals(1000.0, account.getBalance());
     }
 
+    @Test
+    public void resetWithdrawLimit(){
+        account.withdraw(100.0);
+        account.resetWithdrawLimit();
+        assertEquals(500.0, account.getCurrentWithdrawLimit());
+    }
+
+    @Test
+    public void testSetNegativeLimit(){
+        account.setNegativeLimit(-1000.0);
+        assertEquals(-1000.0, account.getNegativeLimit());
+    }
 }
